@@ -1,1 +1,21 @@
 body{background-color: #000;color:#fff;}
+h1{color:#F40612;}
+.search{margin-top:180px;height:40%;
+  z-index: 999;
+}
+.rate{display:none;}
+
+.promotion{
+  background: url(https://i.vimeocdn.com/video/611437407.jpg?mw=1920&mh=1080&q=70) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  color: #FFF;
+  height: 80%;
+  background-color: #060;
+  color: #fff;
+  text-align: center;
+  text-shadow: 0 1px 3px rgba(0,0,0,.5);
+  z-index: 9999;
+}
