@@ -5,6 +5,7 @@ h1{color:#F40612;}
 }
 .rate{display:none;}
 
+.collection{height: 60%;}
 .promotion{
   background: url(https://i.vimeocdn.com/video/611437407.jpg?mw=1920&mh=1080&q=70) no-repeat center center fixed; 
   -webkit-background-size: cover;

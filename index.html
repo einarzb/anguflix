@@ -28,6 +28,20 @@
                 </div>
 
           </section>
+
+          <section class="results">
+            <div ng-controller="anguflixCtrl">
+              <h1>{{title}}</h1>
+            </div>  
+          </section>
+
+          <section class="collection">
+            <h1>your collection</h1>
+            <ul>
+              <li>lalal</li>
+            </ul>
+          </section>
+
           <section class="rate">
              <ul ng-controller="anguflixCtrl">
                 <li ng-repeat="movie in moviesList | orderBy: '-rate'">
