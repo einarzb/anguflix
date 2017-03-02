@@ -9,14 +9,12 @@ app.factory('anguflixService', function($http){
     ];  
   
    var addToCollection = function(newMovie){
-    console.log('from the service')
+     console.log('from the service')
      console.log(newMovie);
      userCollection.push(newMovie);
-
   };
 
-  var searchMovie = function(movieTitle){
-
+var searchMovie = function(movieTitle){
     console.log('got to search movie')
 
     $http({
@@ -25,54 +23,36 @@ app.factory('anguflixService', function($http){
     }).then(function successCallback(response) {
           console.log('im working')
           console.log(response)
-          var plot = response.Plot;
-          var movieYear = response.Year;
-          var actors = response.Actors;
-          var poster = response.Poster;
+          var titleMovie = response.data.Title;
+          var plot = response.data.Plot;
+          var movieYear = response.data.Year;
+          var actors = response.data.Actors;
+          var poster = response.data.Poster;
+          console.log(titleMovie,plot,actors,poster);
+          console.log(movieYear);
 
           var movieInfo = {
-            mTitle:mTitle,
+            titleMovie:titleMovie,
             plot:plot,
             movieYear:movieYear,
             actors:actors,
             poster:poster
-          }
+          };
 
-          // return movieInfo;
-          // console.log(movieInfo);
+          console.log(movieInfo);
+          return movieInfo;
 
       }, function errorCallback(response) {
         // called asynchronously if an error occurs
         // or server returns response with an error status.
       });
-
-  }
-
-
-    //search query array
-    // var userCollection = []; //user collection array
-
-    // var displayTitle = function(mTitle){
-    //        moviesList.push(mTitle);
-    //        console.log(mTitle);
-    //        console.log(moviesList); 
-    //       };
-
-    //  var removeMovieFromList = function (index) {
-    //       userCollection.splice(index, 1); 
-    //       console.log(index); 
-    //       };
-
- //ajax - to call netflix api
-
+  }//end of searchmovie
     
-
     return { 
       moviesList: moviesList,
       userCollection:userCollection,
       addToCollection: addToCollection,
       searchMovie: searchMovie
-      // displayTitle:displayTitle 
     };
 
 });
