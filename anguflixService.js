@@ -2,7 +2,7 @@ app.factory('anguflixService', function(){
 
 //each object has 2 properties
 var moviesList = [
-      {name: "Lion King", rate: 4},
+      {name: "Lion King", rate: '&#9733;&#9733;&#9733;&#9733;&#9733;'}, //stars are in '' as strings
       {name: "Finding Nemo", rate: 5},
       {name: "Titanic", rate: 1},
       {name: "Moonlight", rate: 10}

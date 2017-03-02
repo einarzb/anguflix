@@ -2,14 +2,21 @@
 <head>
   <title>Anguflix</title>
   <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.css">
-  <link rel="stylesheet" type="text/css" href="node_modules/font-awesome/font-awesome.css">
+  <link rel="stylesheet" type="text/css" href="node_modules/font-awesome/css/font-awesome.css">
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body ng-app="appAnguflix">
+  <div class="container">
+    <ul ng-controller="anguflixCtrl">
+    <li ng-repeat="movie in moviesList | orderBy: '-rate'">
+    {{movie.name}} rate: <p ng-bind-html="movie.rate"></p>
+    </li>
+    </ul>
+  </div>  
 
 <script type="text/javascript" src="node_modules/jquery/dist/jquery.js"></script>
 <script type="text/javascript" src="node_modules/angular/angular.js"></script>
-<script type="text/javascript" src="node_modules/handlebars/dist/handlebars.js"></script>
+<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.6.2/angular-sanitize.js"></script>
 <script type="text/javascript" src="app.js"></script>
 <script type="text/javascript" src="anguflixService.js"></script>
 <script type="text/javascript" src="anguflixCtrl.js"></script>
