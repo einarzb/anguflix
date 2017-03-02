@@ -1,10 +1,14 @@
 app.controller('anguflixCtrl', function($scope, anguflixService) {
   $scope.moviesList = anguflixService.moviesList;
   $scope.userBudget = 100; //initialize budget!
-  
-  $scope.addToCollection = function(){
+  $scope.userCollection = anguflixService.userCollection;
 
-  }
+  $scope.searchMovie = anguflixService.searchMovie;
+  //takes movie and send it to service
+  $scope.addToCollection = function(movieToAdd){
+    anguflixService.addToCollection(movieToAdd); //invoke service function 
+    console.log($scope.userCollection);
+  };
     //from user 
     // $scope.movieTitle; //initialize
     // $scope.budget = 100; //I've initialzed it to 100$

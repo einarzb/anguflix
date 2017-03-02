@@ -1,20 +1,30 @@
 /*netflix-red color:#F40612;
 */
 body{background-color: #000;color:#fff;}
+
+.navbar-brand {color:#F40612;}
+
 .well {
   background-color: black;
   width:20%;
   display: inline-block;
-  height:65%;
+  height:485px;
 }
 
+.header{margin-top:80px;}
+
+.plot{
+  overflow: scroll;
+  height: 42px;
+}
+
+.search{width:400px;padding-top: 10px;}
 .budget{float:right;}
 h1{color:#fff;}
-.search{margin-top:150px;height:30%;
-}
+
 .rate{display:none;}
 
-.collection{height: 90%;}
+.collection{height: 70%;}
 
 .promotion{
   background: url(https://i.vimeocdn.com/video/611437407.jpg?mw=1920&mh=1080&q=70) no-repeat center center fixed; 
