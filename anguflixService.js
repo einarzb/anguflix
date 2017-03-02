@@ -1,44 +1,57 @@
 app.factory('anguflixService', function(){
+    var userCollection = [];
+    var moviesList = [
+    {title:"Bambi", poster: 'https://images-na.ssl-images-amazon.com/images/M/MV5BMTY1NzM4NDg5MV5BMl5BanBnXkFtZTgwMjI1MTkzMjE@._V1_UX182_CR0,0,182,268_AL_.jpg', year: 1942, plot: 'The story of a young deer growing up in the forest.'},
+    {title:"Logan", poster: 'https://images-na.ssl-images-amazon.com/images/M/MV5BMjI1MjkzMjczMV5BMl5BanBnXkFtZTgwNDk4NjYyMTI@._V1_UX182_CR0,0,182,268_AL_.jpg', year: 2017, plot: 'In the near future, a weary Logan cares for an ailing Professor X in a hide out'},
+    {title:"Fiding Nemo", poster: 'https://images-na.ssl-images-amazon.com/images/M/MV5BZTAzNWZlNmUtZDEzYi00ZjA5LWIwYjEtZGM1NWE1MjE4YWRhXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_UX182_CR0,0,182,268_AL_.jpg', year: 2003, plot: 'The story of a young deer growing up in the forest.'},
+    {title:"The Lion King", poster: 'https://images-na.ssl-images-amazon.com/images/M/MV5BYTYxNGMyZTYtMjE3MS00MzNjLWFjNmYtMDk3N2FmM2JiM2M1XkEyXkFqcGdeQXVyNjY5NDU4NzI@._V1_UX182_CR0,0,182,268_AL_.jpg', year: 1994, plot: 'A young lion Prince is cast out of his pride by his cruel uncle, who claims he'},
+    {title:"The Lion King", poster: 'https://images-na.ssl-images-amazon.com/images/M/MV5BYTYxNGMyZTYtMjE3MS00MzNjLWFjNmYtMDk3N2FmM2JiM2M1XkEyXkFqcGdeQXVyNjY5NDU4NzI@._V1_UX182_CR0,0,182,268_AL_.jpg', year: 1994, plot: 'A young lion Prince is cast out of his pride by his cruel uncle, who claims he'}
+    ]; //search query array
+    // var userCollection = []; //user collection array
 
-//ajax - to call netflix api
+    // var displayTitle = function(mTitle){
+    //        moviesList.push(mTitle);
+    //        console.log(mTitle);
+    //        console.log(moviesList); 
+    //       };
 
-    $http({
-      method: 'GET',
-      url: 'http://www.omdbapi.com/?' //maybe change it later to url (will be passed from ctrl)
-    }).then(function successCallback(response) {
-          var mTitle = displayTitle()//???
-          var plot = response.Plot;
-          var movieYear = response.Year;
-          var actors = response.Actors;
-          var poster = response.Poster;
+    //  var removeMovieFromList = function (index) {
+    //       userCollection.splice(index, 1); 
+    //       console.log(index); 
+    //       };
 
-          var movieInfo = {
-            mTitle:mTitle,
-            plot:plot,
-            movieYear:movieYear,
-            actors:actors,
-            poster:poster
-          }
+ //ajax - to call netflix api
 
-          return movieInfo;
-          console.log(movieInfo);
+    // $http({
+    //   method: 'GET',
+    //   url: 'http://www.omdbapi.com/?' //maybe change it later to url (will be passed from ctrl)
+    // }).then(function successCallback(response) {
+    //       var mTitle = displayTitle()//???
+    //       var plot = response.Plot;
+    //       var movieYear = response.Year;
+    //       var actors = response.Actors;
+    //       var poster = response.Poster;
 
-      }, function errorCallback(response) {
-        // called asynchronously if an error occurs
-        // or server returns response with an error status.
-      });
+    //       var movieInfo = {
+    //         mTitle:mTitle,
+    //         plot:plot,
+    //         movieYear:movieYear,
+    //         actors:actors,
+    //         poster:poster
+    //       }
 
-    var moviesList = [];
+    //       return movieInfo;
+    //       console.log(movieInfo);
 
-    var displayTitle = function(mTitle){
-           moviesList.push(mTitle);
-           console.log(mTitle);
-           console.log(moviesList); 
-          };
+    //   }, function errorCallback(response) {
+    //     // called asynchronously if an error occurs
+    //     // or server returns response with an error status.
+    //   });
 
     return { 
       moviesList: moviesList,
-      displayTitle:displayTitle 
+      userCollection:userCollection
+      // displayTitle:displayTitle 
     };
 
 });

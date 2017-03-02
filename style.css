@@ -1,11 +1,21 @@
+/*netflix-red color:#F40612;
+*/
 body{background-color: #000;color:#fff;}
-h1{color:#F40612;}
-.search{margin-top:180px;height:40%;
-  z-index: 999;
+.well {
+  background-color: black;
+  width:20%;
+  display: inline-block;
+  height:65%;
+}
+
+.budget{float:right;}
+h1{color:#fff;}
+.search{margin-top:180px;height:10%;
 }
 .rate{display:none;}
 
-.collection{height: 60%;}
+.collection{height: 90%;}
+
 .promotion{
   background: url(https://i.vimeocdn.com/video/611437407.jpg?mw=1920&mh=1080&q=70) no-repeat center center fixed; 
   -webkit-background-size: cover;
