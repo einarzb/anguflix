@@ -1,32 +1,45 @@
 app.factory('anguflixService', function(){
 
-//ajax - to call netflixa api
+//ajax - to call netflix api
 
-$http({
-  method: 'GET',
-  url: 'http://www.omdbapi.com/?' //maybe change it later to url (will be passed from ctrl)
-}).then(function successCallback(response) {
+    $http({
+      method: 'GET',
+      url: 'http://www.omdbapi.com/?' //maybe change it later to url (will be passed from ctrl)
+    }).then(function successCallback(response) {
+          var mTitle = displayTitle()//???
+          var plot = response.Plot;
+          var movieYear = response.Year;
+          var actors = response.Actors;
+          var poster = response.Poster;
 
+          var movieInfo = {
+            mTitle:mTitle,
+            plot:plot,
+            movieYear:movieYear,
+            actors:actors,
+            poster:poster
+          }
 
-    // this callback will be called asynchronously
-    // when the response is available
-  }, function errorCallback(response) {
-    // called asynchronously if an error occurs
-    // or server returns response with an error status.
-  });
+          return movieInfo;
+          console.log(movieInfo);
 
-var moviesList = [];
+      }, function errorCallback(response) {
+        // called asynchronously if an error occurs
+        // or server returns response with an error status.
+      });
 
-var displayTitle = function(mTitle){
-       moviesList.push(mTitle);
-       console.log(mTitle);
-       console.log(moviesList); 
-      };
+    var moviesList = [];
 
-return { 
-  moviesList: moviesList,
-  displayTitle:displayTitle 
-};
+    var displayTitle = function(mTitle){
+           moviesList.push(mTitle);
+           console.log(mTitle);
+           console.log(moviesList); 
+          };
+
+    return { 
+      moviesList: moviesList,
+      displayTitle:displayTitle 
+    };
 
 });
 
