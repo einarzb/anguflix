@@ -2,15 +2,12 @@
 var fetch = function (url) { //data 
   $.ajax({
     method: "GET",
-    url: url,
+    url: 'http://www.omdbapi.com/?t=' + getTitle,
     dataType: "json",
 
     success: function(data) { //data is the object
-      //console.log(data);
-       var cityInfo = createCity(data); //var holds the function createcity that returned cityInfo
-       addCity(cityInfo);
-       renderCities();
-
+      console.log(data);
+      
 
     },
     error: function(jqXHR, textStatus, errorThrown) {
