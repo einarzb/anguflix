@@ -1,5 +1,8 @@
 app.factory('anguflixService', function($http){
     var userCollection = [];
+
+    var popular = [];
+
     var moviesList = [
     {title:"Bambi", poster: 'https://images-na.ssl-images-amazon.com/images/M/MV5BMTY1NzM4NDg5MV5BMl5BanBnXkFtZTgwMjI1MTkzMjE@._V1_UX182_CR0,0,182,268_AL_.jpg', year: 1942, plot: 'The story of a young deer growing up in the forest.'},
     {title:"Logan", poster: 'https://images-na.ssl-images-amazon.com/images/M/MV5BMjI1MjkzMjczMV5BMl5BanBnXkFtZTgwNDk4NjYyMTI@._V1_UX182_CR0,0,182,268_AL_.jpg', year: 2017, plot: 'In the near future, a weary Logan cares for an ailing Professor X in a hide out'},
@@ -8,12 +11,14 @@ app.factory('anguflixService', function($http){
     {title:"The Lion King", poster: 'https://images-na.ssl-images-amazon.com/images/M/MV5BYTYxNGMyZTYtMjE3MS00MzNjLWFjNmYtMDk3N2FmM2JiM2M1XkEyXkFqcGdeQXVyNjY5NDU4NzI@._V1_UX182_CR0,0,182,268_AL_.jpg', year: 1994, plot: 'A young lion Prince is cast out of his pride by his cruel uncle, who claims he'}
     ];  
   
+
    var addToCollection = function(newMovie){
      console.log('from the service')
      console.log(newMovie);
      userCollection.push(newMovie);
   };
 
+//this function gets movie Title and then it easy to mine the data
 var searchMovie = function(movieTitle){
     console.log('got to search movie')
 
@@ -40,19 +45,28 @@ var searchMovie = function(movieTitle){
           };
 
           console.log(movieInfo);
+          addMovie(movieInfo);
           return movieInfo;
 
       }, function errorCallback(response) {
-        // called asynchronously if an error occurs
-        // or server returns response with an error status.
+          alert("please fill in correct name");
       });
   }//end of searchmovie
     
+    var addMovie = function (movieInfo) {
+          popular.push(movieInfo); //object.property.push(object)
+          console.log(popular);
+          alert("im bamby");
+    };
+
+
     return { 
       moviesList: moviesList,
       userCollection:userCollection,
       addToCollection: addToCollection,
-      searchMovie: searchMovie
+      searchMovie: searchMovie,
+      addMovie:addMovie,
+      popular:popular
     };
 
 });

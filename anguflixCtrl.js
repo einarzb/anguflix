@@ -3,27 +3,18 @@ app.controller('anguflixCtrl', function($scope, anguflixService) {
   $scope.userBudget = 100; //initialize budget!
   $scope.userCollection = anguflixService.userCollection;
 
+  //most importent function to get API 
   $scope.searchMovie = anguflixService.searchMovie;
   //takes movie and send it to service
+
+  //array of API movies
+  $scope.popular = anguflixService.popular;
+  
   $scope.addToCollection = function(movieToAdd){
     anguflixService.addToCollection(movieToAdd); //invoke service function 
     console.log($scope.userCollection);
   };
-    //from user 
-    // $scope.movieTitle; //initialize
-    // $scope.budget = 100; //I've initialzed it to 100$
-    // $scope.moviePoster
-
-    // //array of movie objects
-    // $scope.moviesList = anguflixService.moviesList; //scope.array
-    // $scope.userCollection = anguflixService.userCollection; 
-
-    //function that pushes movie title to service
-    // $scope.getTitle = function(){
-    //   var mTitle = 'http://www.omdbapi.com/?t=' + $scope.inputTitle;
-    //   anguflixService.displayTitle(mTitle);
-    //   console.log(mTitle);
-    // }
+   
 
     //function that pushes API scopes to service
 
