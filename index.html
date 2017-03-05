@@ -58,7 +58,7 @@
           <section class="hardcoded">
             <h1 class="text-center">Recommendations</h1>
 
-                  <div class="col-md-12 well text-center" ng-repeat="movie in moviesList | orderBy: '-title' track by $index">
+                  <div class="col-md-12 well" ng-repeat="movie in moviesList | orderBy: '-title' track by $index">
                         <div class="col-md-6 text-section">
                             <h3>{{movie.titleMovie}} <span style="font-size:20px;">/ {{movie.movieYear}}</span></h3>
                             <p>{{movie.plot}}</p>

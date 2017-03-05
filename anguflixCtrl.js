@@ -27,8 +27,11 @@ app.controller('anguflixCtrl', function($scope, anguflixService) {
     $scope.emptyCollection = false; //hide h3
     anguflixService.addToCollection(newMovie); //invoke service function 
     console.log($scope.userCollection);
-    $scope.userBudget -= 20;
+    if($scope.userBudget > 0){
+       $scope.userBudget -= 20;
+    }else{alert("you're out of money!")}
     console.log($scope.userBudget);
+
     };
    
   $scope.removeFromList = function(index){
