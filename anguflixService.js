@@ -1,14 +1,14 @@
 app.factory('anguflixService', function($http){
-    var userCollection = [];
+    var userCollection = []; //USER
 
-    var popular = [];
+    var popular = []; //API 
 
-    var moviesList = [
-    {title:"Bambi", poster: 'https://images-na.ssl-images-amazon.com/images/M/MV5BMTY1NzM4NDg5MV5BMl5BanBnXkFtZTgwMjI1MTkzMjE@._V1_UX182_CR0,0,182,268_AL_.jpg', year: 1942, plot: 'The story of a young deer growing up in the forest.'},
-    {title:"Logan", poster: 'https://images-na.ssl-images-amazon.com/images/M/MV5BMjI1MjkzMjczMV5BMl5BanBnXkFtZTgwNDk4NjYyMTI@._V1_UX182_CR0,0,182,268_AL_.jpg', year: 2017, plot: 'In the near future, a weary Logan cares for an ailing Professor X in a hide out'},
-    {title:"Fiding Nemo", poster: 'https://images-na.ssl-images-amazon.com/images/M/MV5BZTAzNWZlNmUtZDEzYi00ZjA5LWIwYjEtZGM1NWE1MjE4YWRhXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_UX182_CR0,0,182,268_AL_.jpg', year: 2003, plot: 'The story of a young deer growing up in the forest.'},
-    {title:"The Lion King", poster: 'https://images-na.ssl-images-amazon.com/images/M/MV5BYTYxNGMyZTYtMjE3MS00MzNjLWFjNmYtMDk3N2FmM2JiM2M1XkEyXkFqcGdeQXVyNjY5NDU4NzI@._V1_UX182_CR0,0,182,268_AL_.jpg', year: 1994, plot: 'A young lion Prince is cast out of his pride by his cruel uncle, who claims he'},
-    {title:"The Lion King", poster: 'https://images-na.ssl-images-amazon.com/images/M/MV5BYTYxNGMyZTYtMjE3MS00MzNjLWFjNmYtMDk3N2FmM2JiM2M1XkEyXkFqcGdeQXVyNjY5NDU4NzI@._V1_UX182_CR0,0,182,268_AL_.jpg', year: 1994, plot: 'A young lion Prince is cast out of his pride by his cruel uncle, who claims he'}
+    var moviesList = [ //HARDCODED
+    {titleMovie:"Bambi", poster: 'https://images-na.ssl-images-amazon.com/images/M/MV5BMTY1NzM4NDg5MV5BMl5BanBnXkFtZTgwMjI1MTkzMjE@._V1_UX182_CR0,0,182,268_AL_.jpg', movieYear: 1942, plot: 'The story of a young deer growing up in the forest.'},
+    {titleMovie:"Logan", poster: 'https://images-na.ssl-images-amazon.com/images/M/MV5BMjI1MjkzMjczMV5BMl5BanBnXkFtZTgwNDk4NjYyMTI@._V1_UX182_CR0,0,182,268_AL_.jpg', movieYear: 2017, plot: 'In the near future, a weary Logan cares for an ailing Professor X in a hide out'},
+    {titleMovie:"Fiding Nemo", poster: 'https://images-na.ssl-images-amazon.com/images/M/MV5BZTAzNWZlNmUtZDEzYi00ZjA5LWIwYjEtZGM1NWE1MjE4YWRhXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_UX182_CR0,0,182,268_AL_.jpg', movieYear: 2003, plot: 'The story of a young deer growing up in the forest.'},
+    {titleMovie:"The Lion King", poster: 'https://images-na.ssl-images-amazon.com/images/M/MV5BYTYxNGMyZTYtMjE3MS00MzNjLWFjNmYtMDk3N2FmM2JiM2M1XkEyXkFqcGdeQXVyNjY5NDU4NzI@._V1_UX182_CR0,0,182,268_AL_.jpg', movieYear: 1994, plot: 'A young lion Prince is cast out of his pride by his cruel uncle, who claims he'},
+    {titleMovie:"The Lion King", poster: 'https://images-na.ssl-images-amazon.com/images/M/MV5BYTYxNGMyZTYtMjE3MS00MzNjLWFjNmYtMDk3N2FmM2JiM2M1XkEyXkFqcGdeQXVyNjY5NDU4NzI@._V1_UX182_CR0,0,182,268_AL_.jpg', movieYear: 1994, plot: 'A young lion Prince is cast out of his pride by his cruel uncle, who claims he'}
     ];  
   
 
@@ -16,6 +16,11 @@ app.factory('anguflixService', function($http){
      console.log('from the service')
      console.log(newMovie);
      userCollection.push(newMovie);
+  };
+
+  var removeFromList = function (index) {
+    userCollection.splice(index, 1); 
+    console.log(index); 
   };
 
 //this function gets movie Title and then it easy to mine the data
@@ -53,10 +58,10 @@ var searchMovie = function(movieTitle){
       });
   }//end of searchmovie
     
+    //takes the "real" object API and pushes it onto NEW array 
     var addMovie = function (movieInfo) {
           popular.push(movieInfo); //object.property.push(object)
           console.log(popular);
-          alert("im bamby");
     };
 
 
@@ -64,6 +69,7 @@ var searchMovie = function(movieTitle){
       moviesList: moviesList,
       userCollection:userCollection,
       addToCollection: addToCollection,
+      removeFromList:removeFromList,
       searchMovie: searchMovie,
       addMovie:addMovie,
       popular:popular

@@ -10,18 +10,19 @@ app.controller('anguflixCtrl', function($scope, anguflixService) {
   //array of API movies
   $scope.popular = anguflixService.popular;
   
-  $scope.addToCollection = function(movieToAdd){
-    anguflixService.addToCollection(movieToAdd); //invoke service function 
-    console.log($scope.userCollection);
-  };
+  $scope.addToCollection = function(newMovie){
+    if (newMovie === anguflixService.userCollection) {
+         alert("movie is alreay in list");
+    }else{     
+        anguflixService.addToCollection(newMovie); //invoke service function 
+        console.log($scope.userCollection);} 
+    };
    
+  $scope.removeFromList = function(index){
+    anguflixService.removeFromList(index);
+    console.log($scope.userCollection);
+  }
 
-    //function that pushes API scopes to service
 
-
-    // //function that removes movie from the array
-    // $scope.removeMovieFromList = function (index) {
-    //     userCollection.removeMovieFromList(index);
-    // };
 
 });

@@ -53,8 +53,8 @@
  <div class="fluid-container">    
           <section class="hardcoded">
              <div ng-controller="anguflixCtrl">
-                  <div class="well" ng-repeat="movie in popular | orderBy: '-title' track by $index">
-                      <h3>{{movie.title}} <span style="font-size:25px;">{{movie.year}}</span></h3>
+                  <div class="well" ng-repeat="movie in moviesList | orderBy: '-title' track by $index">
+                      <h3>{{movie.titleMovie}} <span style="font-size:20px;">/ {{movie.movieYear}}</span></h3>
                       <p>{{movie.plot}}</p>
                       <img src="{{movie.poster}}"/><br><br>
                       <button type="button" class="btn btn-danger btn-sm" ng-click="addToCollection(movie)">add to collection</button>
@@ -78,10 +78,10 @@
       <section id="collection" class="collection">      
               <div ng-controller="anguflixCtrl">
                    <div class="well" ng-repeat="movie in userCollection | orderBy: '-title' track by $index">
-                      <h3>{{movie.title}} <span style="font-size:25px;">{{movie.year}}</span></h3>
+                      <h3>{{movie.titleMovie}} <span style="font-size:25px;">{{movie.movieYear}}</span></h3>
                       <p class="plot">{{movie.plot}}</p>
                       <img src="{{movie.poster}}"/><br><br>
-                      <button type="button" class="btn btn-danger btn-sm" ng-click="removeFromCollection()">remove</button>
+                      <button type="button" class="btn btn-danger btn-sm" ng-click="removeFromList($index)">remove</button>
                     <!-- rate: <span ng-bind-html="movie.rate"></span> -->
               </div>  
       </section> 
@@ -117,7 +117,6 @@
 <script type="text/javascript" src="node_modules/jquery/dist/jquery.js"></script>
 <script type="text/javascript" src="node_modules/angular/angular.js"></script>
 <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.6.2/angular-sanitize.js"></script>
-<script type="text/javascript" src="script.js"></script>
 <script type="text/javascript" src="app.js"></script>
 <script type="text/javascript" src="anguflixService.js"></script>
 <script type="text/javascript" src="anguflixCtrl.js"></script>
