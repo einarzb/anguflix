@@ -40,15 +40,6 @@
     </div><!-- /.container-fluid -->
   </nav>
 
-<div class="container">
-
-  <div class="row">
-    <div class="header col-md-7 col-md-offset-3"> 
-       <h3>Select movies from below to add to your collection</h3> 
-    </div>
-  </div>          
-</div> <!-- end container -->   
-
 <!--hardcoded movie list-->
  <div class="fluid-container">    
           <section class="hardcoded">
@@ -56,7 +47,7 @@
                   <div class="well" ng-repeat="movie in moviesList | orderBy: '-title' track by $index">
                       <h3>{{movie.titleMovie}} <span style="font-size:20px;">/ {{movie.movieYear}}</span></h3>
                       <p>{{movie.plot}}</p>
-                      <img src="{{movie.poster}}"/><br><br>
+                      <img ng-src="{{movie.poster}}"/><br><br>
                       <button type="button" class="btn btn-danger btn-sm" ng-click="addToCollection(movie)">add to collection</button>
                     <!-- rate: <span ng-bind-html="movie.rate"></span> -->
                   </div>  
@@ -70,7 +61,12 @@
       <div class="col-md-7 col-md-offset-5"> 
          <h3> your collection</h3> 
       </div>
-    </div>    
+      <div ng-hide="emptyCollection">
+          <h4 class="text-center">Select movies from below to add to your collection</h4>
+      </div>  
+
+    </div>  
+
   </div><!--end container-->
 
 <!--collection array-->
@@ -80,7 +76,7 @@
                    <div class="well" ng-repeat="movie in userCollection | orderBy: '-title' track by $index">
                       <h3>{{movie.titleMovie}} <span style="font-size:25px;">{{movie.movieYear}}</span></h3>
                       <p class="plot">{{movie.plot}}</p>
-                      <img src="{{movie.poster}}"/><br><br>
+                      <img ng-src="{{movie.poster}}"/><br><br>
                       <button type="button" class="btn btn-danger btn-sm" ng-click="removeFromList($index)">remove</button>
                     <!-- rate: <span ng-bind-html="movie.rate"></span> -->
               </div>  
