@@ -6,7 +6,8 @@
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
-<body ng-app="appAnguflix">  
+<body ng-app="appAnguflix"> 
+  <section ng-controller="anguflixCtrl">
   <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
       <!-- Brand and toggle get grouped for better mobile display -->
@@ -20,7 +21,7 @@
         <a class="navbar-brand" href="#" style="color:#F40612">ANGULFLIX</a>
       </div>
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul ng-controller="anguflixCtrl" class="nav navbar-nav navbar-right">
+        <ul class="nav navbar-nav navbar-right">
           <li>
              <span class="search input-group">
                  <input type="text" class="form-control" ng-model="movieTitle" placeholder="Enter movie name">
@@ -32,7 +33,7 @@
           <li>
             <a href="#collection">My Collection</a>
           </li>
-          <li class="dropdown" ng-controller="anguflixCtrl">
+          <li class="dropdown" >
             <a href="#" class="budget" data-toggle="dropdown" role="button"> {{userBudget}}$ <i class="fa fa-shopping-cart"></i></a>
           </li>
         </ul>
@@ -43,7 +44,7 @@
 <!--hardcoded movie list-->
  <div class="fluid-container">    
           <section class="hardcoded">
-             <div ng-controller="anguflixCtrl">
+             <div >
                   <div class="well" ng-repeat="movie in moviesList | orderBy: '-title' track by $index">
                       <h3>{{movie.titleMovie}} <span style="font-size:20px;">/ {{movie.movieYear}}</span></h3>
                       <p>{{movie.plot}}</p>
@@ -56,12 +57,12 @@
       </div> <!--end of fluid container-->
 
 <!--collection-->
-  <div class="container">
+  <div class="container" >
     <div class="row">
       <div class="col-md-7 col-md-offset-5"> 
          <h3> your collection</h3> 
       </div>
-      <div ng-hide="emptyCollection">
+      <div ng-show="emptyCollection">
           <h4 class="text-center">Select movies from below to add to your collection</h4>
       </div>  
 
@@ -72,7 +73,7 @@
 <!--collection array-->
 <div class="fluid-container"> 
       <section id="collection" class="collection">      
-              <div ng-controller="anguflixCtrl">
+              <div >
                    <div class="well" ng-repeat="movie in userCollection | orderBy: '-title' track by $index">
                       <h3>{{movie.titleMovie}} <span style="font-size:25px;">{{movie.movieYear}}</span></h3>
                       <p class="plot">{{movie.plot}}</p>
@@ -109,7 +110,7 @@
           </div>  
       </div> 
   </div>    -->
-
+</section>
 <script type="text/javascript" src="node_modules/jquery/dist/jquery.js"></script>
 <script type="text/javascript" src="node_modules/angular/angular.js"></script>
 <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.6.2/angular-sanitize.js"></script>
