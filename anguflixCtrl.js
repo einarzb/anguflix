@@ -1,7 +1,7 @@
 app.controller('anguflixCtrl', function($scope, anguflixService) {
 
   $scope.moviesList = anguflixService.moviesList;
-  $scope.userBudget = 100; //initialize budget!
+  $scope.userBudget = 0; //initialize budget!
   $scope.userCollection = anguflixService.userCollection;
   $scope.emptyCollection = true; //show h3
 
@@ -27,7 +27,7 @@ app.controller('anguflixCtrl', function($scope, anguflixService) {
     $scope.emptyCollection = false; //hide h3
     anguflixService.addToCollection(newMovie); //invoke service function 
     console.log($scope.userCollection);
-    $scope.userBudget -= 20;
+    $scope.userBudget += 20;
     console.log($scope.userBudget);
     };
    
