@@ -6,7 +6,15 @@ body{background-color: #000;color:#fff;}
 img{
   width:140px;
   height:220px;
+  margin-left:20px;
 }
+.priceTag {background-color: #5cb85c;
+width:50px;
+text-align: center;
+border-radius: 3px;
+line-height: 1.5;
+color:#fff;
+font-size:12px;}
 
 .navbar-brand {
   padding: 0px;
@@ -20,9 +28,10 @@ img{
 
 .hardcoded {margin-top: 100px;}
 .popular {margin-top: 650px;}
+
 .well {
-  margin-left: 10px;
-  padding-right: 10px;
+  margin-left: 5px; /*space between items*/
+  padding-right: 0px;
   background-color: black;
   display: inline-block;
   height:300px;
@@ -33,7 +42,11 @@ img{
 
 .plot{
   overflow: scroll;
-  height: 42px;
+  height: 150px;
+  margin-left:0px;
+  width:200px;
+  padding-left:0px;
+
 }
 
 .filter {width:400px;padding-top: 10px;}

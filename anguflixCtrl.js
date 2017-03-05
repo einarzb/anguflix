@@ -1,9 +1,11 @@
 app.controller('anguflixCtrl', function($scope, anguflixService) {
 
   $scope.moviesList = anguflixService.moviesList;
+  $scope.movieTitleFilter; //for filter
   $scope.userBudget = 100; //initialize budget!
   $scope.userCollection = anguflixService.userCollection;
   $scope.emptyCollection = true; //show h3
+  $scope.priceTag = 10;
 
   //most importent function to get API 
   $scope.searchMovie = anguflixService.searchMovie;
@@ -28,7 +30,7 @@ app.controller('anguflixCtrl', function($scope, anguflixService) {
     anguflixService.addToCollection(newMovie); //invoke service function 
     console.log($scope.userCollection);
     if($scope.userBudget > 0){
-       $scope.userBudget -= 20;
+       $scope.userBudget -= 10;
     }else{alert("you're out of money!")}
     console.log($scope.userBudget);
 
