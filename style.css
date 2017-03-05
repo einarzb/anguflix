@@ -26,7 +26,9 @@ body{background-color: #000;color:#fff;}
   height: 42px;
 }
 
-.search{width:400px;padding-top: 10px;}
+.filter {width:400px;padding-top: 10px;}
+.search{width: 400px;padding-top: 10px;padding-right: 10px;}
+
 .budget{float:right;}
 h1{color:#fff;}
 

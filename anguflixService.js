@@ -23,14 +23,14 @@ app.factory('anguflixService', function($http){
     console.log(index); 
   };
 
-//this function gets movie Title and then it easy to mine the data
-var searchMovie = function(movieTitle){
+  //this function gets movie Title and then it easy to mine the data
+  var searchMovie = function(movieTitle){
     console.log('got to search movie')
 
     $http({
       method: 'GET',
-      url: 'http://www.omdbapi.com/?t=' + movieTitle  //maybe change it later to url (will be passed from ctrl)
-    }).then(function successCallback(response) {
+      url: 'http://www.omdbapi.com/?t=' + movieTitle  //s= will show an array
+    }).then(function (response) {
           console.log('im working')
           console.log(response)
           var titleMovie = response.data.Title;
@@ -58,7 +58,7 @@ var searchMovie = function(movieTitle){
       });
   }//end of searchmovie
     
-    //takes the "real" object API and pushes it onto NEW array 
+    //takes the "real" object API and pushes it onto NEW popular array 
     var addMovie = function (movieInfo) {
           popular.push(movieInfo); //object.property.push(object)
           console.log(popular);
