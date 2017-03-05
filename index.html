@@ -56,27 +56,34 @@
  <div class="fluid-container">    
           <section class="hardcoded">
             <h1 class="text-center">Recommendations</h1>
-             <div>
-                  <div class="well" ng-repeat="movie in moviesList | orderBy: '-title' track by $index">
-                      <h3>{{movie.titleMovie}} <span style="font-size:20px;">/ {{movie.movieYear}}</span></h3>
-                      <p>{{movie.plot}}</p>
-                      <img ng-src="{{movie.poster}}"/><br><br>
-                      <button type="button" class="btn btn-danger btn-sm" ng-click="addToCollection(movie)">add to collection</button>
-                    <!-- rate: <span ng-bind-html="movie.rate"></span> -->
-                  </div>  
-             </div><!--ngcontroller-->
+
+                  <div class="col-md-12 well text-center" ng-repeat="movie in moviesList | orderBy: '-title' track by $index">
+                        <div class="col-md-6 text-section">
+                            <h3>{{movie.titleMovie}} <span style="font-size:20px;">/ {{movie.movieYear}}</span></h3>
+                            <p>{{movie.plot}}</p>
+                        </div>  
+
+                        <div class="col-md-6 image-section">
+                             <img ng-src="{{movie.poster}}"/><br><br>
+                              <button type="button" class="btn btn-danger btn-sm" ng-click="addToCollection(movie)">add to collection</button>
+                        </div>  
+                  </div>
           </section>
-      </div> <!--end of fluid container-->
+  </div> <!--end of fluid container-->
 
 <!--api-->
 <div class="fluid-container"> 
       <section id="popular" class="popular">      
               <h1 class="text-center">Search Results</h1>
-                   <div class="well" ng-repeat="movie in popular | orderBy: '-title' track by $index">
-                      <h3>{{movie.titleMovie}} <span style="font-size:25px;">{{movie.movieYear}}</span></h3>
-                      <p class="plot">{{movie.plot}}</p>
-                      <img ng-src="{{movie.poster}}"/><br><br>
-                      <button type="button" class="btn btn-danger btn-sm" ng-click="addToCollection(movie)">add to collection</button>
+                   <div class="col-md-12 well text-center" ng-repeat="movie in popular | orderBy: '-title' track by $index">
+                        <div class="col-md-6 text-section">
+                            <h3>{{movie.titleMovie}} <span style="font-size:25px;">{{movie.movieYear}}</span></h3>
+                          <p class="plot">{{movie.plot}}</p>
+                        </div>
+                        <div class="col-md-6 image-section">
+                            <img ng-src="{{movie.poster}}"/><br><br>
+                            <button type="button" class="btn btn-danger btn-sm" ng-click="addToCollection(movie)">add to collection</button>
+                        </div>    
                   </div>  
       </section> 
  </div> <!--end fluid container
@@ -88,7 +95,7 @@
           <div class="col-md-7 col-md-offset-5"> 
           </div>
           <div ng-show="emptyCollection">
-              <h4 class="text-center">Select movies from below to add to your collection</h4>
+              <h4 class="text-center">Select movies to add to your collection</h4>
           </div> 
     </div>  
  </div><!--end container-->
@@ -97,14 +104,17 @@
 <!--collection array-->
 <div class="fluid-container"> 
       <section id="collection" class="collection">      
-              <div><!--userCollection-->
-                   <div class="well" ng-repeat="movie in userCollection | orderBy: '-title' track by $index">
-                      <h3>{{movie.titleMovie}} <span style="font-size:25px;">{{movie.movieYear}}</span></h3>
-                      <p class="plot">{{movie.plot}}</p>
-                      <img ng-src="{{movie.poster}}"/><br><br>
-                      <button type="button" class="btn btn-danger btn-sm" ng-click="removeFromList($index)">remove</button>
+                   <div class="col-md-12 well text-center" ng-repeat="movie in userCollection | orderBy: '-title' track by $index">
+                      <div class="col-md-6 text-section">
+                          <h3>{{movie.titleMovie}} <span style="font-size:25px;">{{movie.movieYear}}</span></h3>
+                          <p class="plot">{{movie.plot}}</p>
+                      </div>
+                      <div class="col-md-6 image-section">   
+                          <img ng-src="{{movie.poster}}"/><br><br>
+                          <button type="button" class="btn btn-danger btn-sm" ng-click="removeFromList($index)">remove</button>
+
                     <!-- rate: <span ng-bind-html="movie.rate"></span> -->
-              </div>  
+
       </section> 
  </div> <!--end fluid container-->
 

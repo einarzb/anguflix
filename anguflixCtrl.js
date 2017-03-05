@@ -24,26 +24,26 @@ app.controller('anguflixCtrl', function($scope, anguflixService) {
     };
 
     //the else happens OUTSIDE the loop and only THAN adds the new movie to array 
-    if($scope.emptyCollection){
-      $scope.emptyCollection = false; //hide h3
-    }else{
-      $scope.emptyCollection = true;
-    }
-
+    $scope.emptyCollection = false; //hide h3
     anguflixService.addToCollection(newMovie); //invoke service function 
     console.log($scope.userCollection);
+    $scope.userBudget -= 20;
+    console.log($scope.userBudget);
     };
    
   $scope.removeFromList = function(index){
       anguflixService.removeFromList(index);
       console.log($scope.userCollection);
 
-      if($scope.emptyCollection){
-        $scope.emptyCollection = false; //hide h3
-      }else{
+      if(anguflixService.userCollection.length === 0){
         $scope.emptyCollection = true;
-      }
+      };
 
+
+
+
+
+      
   }
 
 
