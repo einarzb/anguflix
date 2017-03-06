@@ -4,12 +4,17 @@ app.factory('anguflixService', function($http){
     var popular = []; //API 
 
     var moviesList = [ //HARDCODED
-    {titleMovie:"Bambi", poster: 'https://images-na.ssl-images-amazon.com/images/M/MV5BMTY1NzM4NDg5MV5BMl5BanBnXkFtZTgwMjI1MTkzMjE@._V1_UX182_CR0,0,182,268_AL_.jpg', movieYear: 1942, plot: 'The story of a young deer growing up in the forest.'},
-    {titleMovie:"Logan", poster: 'https://images-na.ssl-images-amazon.com/images/M/MV5BMjI1MjkzMjczMV5BMl5BanBnXkFtZTgwNDk4NjYyMTI@._V1_UX182_CR0,0,182,268_AL_.jpg', movieYear: 2017, plot: 'In the near future, a weary Logan cares for an ailing Professor X in a hide out'},
-    {titleMovie:"Fiding Nemo", poster: 'https://images-na.ssl-images-amazon.com/images/M/MV5BZTAzNWZlNmUtZDEzYi00ZjA5LWIwYjEtZGM1NWE1MjE4YWRhXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_UX182_CR0,0,182,268_AL_.jpg', movieYear: 2003, plot: 'The story of a young deer growing up in the forest.'},
-    {titleMovie:"The Lion King", poster: 'https://images-na.ssl-images-amazon.com/images/M/MV5BYTYxNGMyZTYtMjE3MS00MzNjLWFjNmYtMDk3N2FmM2JiM2M1XkEyXkFqcGdeQXVyNjY5NDU4NzI@._V1_UX182_CR0,0,182,268_AL_.jpg', movieYear: 1994, plot: 'A young lion Prince is cast out of his pride by his cruel uncle, who claims he'},
-    {titleMovie:"The Lion King", poster: 'https://images-na.ssl-images-amazon.com/images/M/MV5BYTYxNGMyZTYtMjE3MS00MzNjLWFjNmYtMDk3N2FmM2JiM2M1XkEyXkFqcGdeQXVyNjY5NDU4NzI@._V1_UX182_CR0,0,182,268_AL_.jpg', movieYear: 1994, plot: 'A young lion Prince is cast out of his pride by his cruel uncle, who claims he'},
-    {titleMovie:"Bambi", poster: 'https://images-na.ssl-images-amazon.com/images/M/MV5BMTY1NzM4NDg5MV5BMl5BanBnXkFtZTgwMjI1MTkzMjE@._V1_UX182_CR0,0,182,268_AL_.jpg', movieYear: 1942, plot: 'The story of a young deer growing up in the forest.'}
+    {titleMovie:"Bambi", poster: 'https://images-na.ssl-images-amazon.com/images/M/MV5BMTY1NzM4NDg5MV5BMl5BanBnXkFtZTgwMjI1MTkzMjE@._V1_UX182_CR0,0,182,268_AL_.jpg', movieYear: 1942, plot: 'The story of a young deer growing up in the forest.', priceTag: Math.floor(Math.random() * (20-5) + 5)},
+    {titleMovie:"Logan", poster: 'https://images-na.ssl-images-amazon.com/images/M/MV5BMjI1MjkzMjczMV5BMl5BanBnXkFtZTgwNDk4NjYyMTI@._V1_UX182_CR0,0,182,268_AL_.jpg', movieYear: 2017, plot: 'In the near future, a weary Logan cares for an ailing Professor X in a hide out',priceTag: Math.floor(Math.random() * (20-5) + 5)
+},
+    {titleMovie:"Fiding Nemo", poster: 'https://images-na.ssl-images-amazon.com/images/M/MV5BZTAzNWZlNmUtZDEzYi00ZjA5LWIwYjEtZGM1NWE1MjE4YWRhXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_UX182_CR0,0,182,268_AL_.jpg', movieYear: 2003, plot: 'The story of a young deer growing up in the forest.',priceTag: Math.floor(Math.random() * (20-5) + 5)
+},
+    {titleMovie:"The Lion King", poster: 'https://images-na.ssl-images-amazon.com/images/M/MV5BYTYxNGMyZTYtMjE3MS00MzNjLWFjNmYtMDk3N2FmM2JiM2M1XkEyXkFqcGdeQXVyNjY5NDU4NzI@._V1_UX182_CR0,0,182,268_AL_.jpg', movieYear: 1994, plot: 'A young lion Prince is cast out of his pride by his cruel uncle, who claims he',priceTag: Math.floor(Math.random() * (20-5) + 5)
+},
+    {titleMovie:"The Lion King", poster: 'https://images-na.ssl-images-amazon.com/images/M/MV5BYTYxNGMyZTYtMjE3MS00MzNjLWFjNmYtMDk3N2FmM2JiM2M1XkEyXkFqcGdeQXVyNjY5NDU4NzI@._V1_UX182_CR0,0,182,268_AL_.jpg', movieYear: 1994, plot: 'A young lion Prince is cast out of his pride by his cruel uncle, who claims he',priceTag: Math.floor(Math.random() * (20-5) + 5)
+},
+    {titleMovie:"Bambi", poster: 'https://images-na.ssl-images-amazon.com/images/M/MV5BMTY1NzM4NDg5MV5BMl5BanBnXkFtZTgwMjI1MTkzMjE@._V1_UX182_CR0,0,182,268_AL_.jpg', movieYear: 1942, plot: 'The story of a young deer growing up in the forest.', priceTag: Math.floor(Math.random() * (20-5) + 5)
+}
 
     ];  
   
@@ -40,7 +45,9 @@ app.factory('anguflixService', function($http){
           var movieYear = response.data.Year;
           var actors = response.data.Actors;
           var poster = response.data.Poster;
-          console.log(titleMovie,plot,actors,poster);
+          var priceTag = Math.floor(Math.random() * (20-5) + 5); //math.random
+
+          console.log(titleMovie,plot,actors,poster,priceTag);
           console.log(movieYear);
 
           var movieInfo = {
@@ -48,7 +55,8 @@ app.factory('anguflixService', function($http){
             plot:plot,
             movieYear:movieYear,
             actors:actors,
-            poster:poster
+            poster:poster,
+            priceTag:priceTag
           };
 
           console.log(movieInfo);

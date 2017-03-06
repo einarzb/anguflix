@@ -5,7 +5,6 @@ app.controller('anguflixCtrl', function($scope, anguflixService) {
   $scope.userBudget = 100; //initialize budget!
   $scope.userCollection = anguflixService.userCollection;
   $scope.emptyCollection = true; //show h3
-  $scope.priceTag = 10;
 
   //most importent function to get API 
   $scope.searchMovie = anguflixService.searchMovie;
